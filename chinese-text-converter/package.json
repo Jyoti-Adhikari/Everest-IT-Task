@@ -1,0 +1,19 @@
+{
+  "name": "simpletotraditionalchineseconverter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node dir_converter.js s2t ./chinese_docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "opencc-js": "^1.3.1",
+    "path": "^0.12.7"
+  }
+}
