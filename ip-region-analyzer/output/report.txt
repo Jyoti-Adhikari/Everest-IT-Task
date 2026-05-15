@@ -1,0 +1,5 @@
+
+=== IP Region Report ===
+
+US: 3
+AU: 1
