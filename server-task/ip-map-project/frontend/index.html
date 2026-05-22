@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IP Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <style>
+        #map {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script>
+const map = L.map('map').setView([35.8617, 104.1954], 4); // China center
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+}).addTo(map);
+
+fetch('http://localhost:3000/api/ips')
+    .then(res => res.json())
+    .then(data => {
+
+        data.forEach(ip => {
+            L.marker([ip.lat, ip.lng])
+                .addTo(map)
+                .bindPopup(`${ip.ip}<br>${ip.country}`);
+        });
+
+    });
+</script>
+
+</body>
+</html>
